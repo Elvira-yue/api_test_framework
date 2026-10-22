@@ -1,0 +1,6 @@
+INFO     api_test:conftest.py:86 ===== 开始：test_cases/test_auth.py::TestAuth::test_register_success =====
+INFO     api_test:request_handler.py:38 → POST http://localhost:3000/api/auth/register
+DEBUG    api_test:request_handler.py:41   json: {'username': 'u1792678682368', 'password': '123456', 'fullName': '测试用户', 'phone': '13978682368', 'city': '杭州'}
+INFO     api_test:request_handler.py:49 ← HTTP 201 (1.674s)
+DEBUG    api_test:request_handler.py:50   body: {"code":0,"message":"注册成功","data":{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE0MCwidXNlcm5hbWUiOiJ1MTc5MjY3ODY4MjM2OCIsImlhdCI6MTc5MjY3ODY4NCwiZXhwIjoxNzkzMjgzNDg0fQ.5vquDQSZ-4jyHXKkh-uEzLDLfpkdV1Ed0_RmJamlae4","user":{"id":140,"username":"u1792678682368","fullName":"测试用户","phone":"13978682368","city":"杭州","createdAt":"2026-10-22T14:18:03.946Z","updatedAt":"2026-10-22T14:18:03.946Z"}}}
+INFO     api_test:conftest.py:88 ===== 结束：test_cases/test_auth.py::TestAuth::test_register_success =====

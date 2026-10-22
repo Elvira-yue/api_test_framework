@@ -1,0 +1,10 @@
+INFO     api_test:conftest.py:86 ===== 开始：test_cases/test_auth.py::TestAuth::test_login_wrong_password =====
+INFO     api_test:request_handler.py:38 → POST http://localhost:3000/api/auth/register
+DEBUG    api_test:request_handler.py:41   json: {'username': 'u1792678684430', 'password': '123456', 'fullName': '测试用户', 'phone': '13978684430', 'city': '杭州'}
+INFO     api_test:request_handler.py:49 ← HTTP 201 (0.111s)
+DEBUG    api_test:request_handler.py:50   body: {"code":0,"message":"注册成功","data":{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE0MywidXNlcm5hbWUiOiJ1MTc5MjY3ODY4NDQzMCIsImlhdCI6MTc5MjY3ODY4NCwiZXhwIjoxNzkzMjgzNDg0fQ.1QwMJPayICbv1K-AgMzrcNa2neeS7DQIwHPVFe5B_oc","user":{"id":143,"username":"u1792678684430","fullName":"测试用户","phone":"13978684430","city":"杭州","createdAt":"2026-10-22T14:18:04.534Z","updatedAt":"2026-10-22T14:18:04.534Z"}}}
+INFO     api_test:request_handler.py:38 → POST http://localhost:3000/api/auth/login
+DEBUG    api_test:request_handler.py:41   json: {'username': 'u1792678684430', 'password': 'wrongpass'}
+INFO     api_test:request_handler.py:49 ← HTTP 401 (0.112s)
+DEBUG    api_test:request_handler.py:50   body: {"code":401,"message":"账号或密码错误","data":null}
+INFO     api_test:conftest.py:88 ===== 结束：test_cases/test_auth.py::TestAuth::test_login_wrong_password =====

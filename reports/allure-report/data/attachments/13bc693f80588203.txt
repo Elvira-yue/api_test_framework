@@ -1,0 +1,6 @@
+INFO     api_test:conftest.py:86 ===== 开始：test_cases/test_auth.py::TestAuth::test_login_missing =====
+INFO     api_test:request_handler.py:38 → POST http://localhost:3000/api/auth/login
+DEBUG    api_test:request_handler.py:41   json: {'username': '', 'password': ''}
+INFO     api_test:request_handler.py:49 ← HTTP 400 (0.007s)
+DEBUG    api_test:request_handler.py:50   body: {"code":400,"message":"请输入账号和密码","data":null}
+INFO     api_test:conftest.py:88 ===== 结束：test_cases/test_auth.py::TestAuth::test_login_missing =====

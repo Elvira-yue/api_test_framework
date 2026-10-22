@@ -1,0 +1,10 @@
+2026-10-22 22:18:05 [INFO] ===== 开始：test_cases/test_user.py::TestUser::test_create_duplicate_phone =====
+2026-10-22 22:18:05 [INFO] → POST http://localhost:3000/api/users
+2026-10-22 22:18:05 [INFO] ← HTTP 201 (0.132s)
+2026-10-22 22:18:05 [INFO] → GET http://localhost:3000/api/users/146
+2026-10-22 22:18:05 [INFO] ← HTTP 200 (0.005s)
+2026-10-22 22:18:05 [INFO] → POST http://localhost:3000/api/users
+2026-10-22 22:18:05 [INFO] ← HTTP 409 (0.008s)
+2026-10-22 22:18:05 [INFO] → DELETE http://localhost:3000/api/users/146
+2026-10-22 22:18:05 [INFO] ← HTTP 200 (0.018s)
+2026-10-22 22:18:05 [INFO] ===== 结束：test_cases/test_user.py::TestUser::test_create_duplicate_phone =====

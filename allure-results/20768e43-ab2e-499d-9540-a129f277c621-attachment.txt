@@ -1,0 +1,10 @@
+INFO     api_test:conftest.py:86 ===== 开始：test_cases/test_auth.py::TestAuth::test_login_success =====
+INFO     api_test:request_handler.py:38 → POST http://localhost:3000/api/auth/register
+DEBUG    api_test:request_handler.py:41   json: {'username': 'u1792678684205', 'password': '123456', 'fullName': '测试用户', 'phone': '13978684205', 'city': '杭州'}
+INFO     api_test:request_handler.py:49 ← HTTP 201 (0.111s)
+DEBUG    api_test:request_handler.py:50   body: {"code":0,"message":"注册成功","data":{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE0MiwidXNlcm5hbWUiOiJ1MTc5MjY3ODY4NDIwNSIsImlhdCI6MTc5MjY3ODY4NCwiZXhwIjoxNzkzMjgzNDg0fQ.e0HmmLuDc-eC4SONwD3n6wQUIDUTbCINbMFddd8kxu0","user":{"id":142,"username":"u1792678684205","fullName":"测试用户","phone":"13978684205","city":"杭州","createdAt":"2026-10-22T14:18:04.305Z","updatedAt":"2026-10-22T14:18:04.305Z"}}}
+INFO     api_test:request_handler.py:38 → POST http://localhost:3000/api/auth/login
+DEBUG    api_test:request_handler.py:41   json: {'username': 'u1792678684205', 'password': '123456'}
+INFO     api_test:request_handler.py:49 ← HTTP 200 (0.101s)
+DEBUG    api_test:request_handler.py:50   body: {"code":0,"message":"登录成功","data":{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE0MiwidXNlcm5hbWUiOiJ1MTc5MjY3ODY4NDIwNSIsImlhdCI6MTc5MjY3ODY4NCwiZXhwIjoxNzkzMjgzNDg0fQ.e0HmmLuDc-eC4SONwD3n6wQUIDUTbCINbMFddd8kxu0","user":{"id":142,"username":"u1792678684205","fullName":"测试用户","phone":"13978684205","city":"杭州","createdAt":"2026-10-22T14:18:04.000Z","updatedAt":"2026-10-22T14:18:04.000Z"}}}
+INFO     api_test:conftest.py:88 ===== 结束：test_cases/test_auth.py::TestAuth::test_login_success =====

@@ -2081,3 +2081,189 @@ h::test_register_missing_field =====
 2026-10-22 16:11:12 [INFO] → GET http://localhost:3000/api/auth/profile
 2026-10-22 16:11:16 [ERROR]   请求异常：HTTPConnectionPool(host='localhost', port=3000): Max retries exceeded with url: /api/auth/profile (Caused by NewConnectionError("HTTPConnection(host='localhost', port=3000): Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。"))
 2026-10-22 16:11:16 [INFO] ===== 结束：test_cases/test_auth.py::TestAuth::test_profile_no_token =====
+2026-10-22 22:18:01 [INFO] ===== 开始：test_cases/test_auth.py::TestAuth::test_health =====
+2026-10-22 22:18:01 [INFO] → GET http://localhost:3000/api/health
+2026-10-22 22:18:02 [INFO] ← HTTP 200 (0.375s)
+2026-10-22 22:18:02 [DEBUG]   body: {"code":0,"message":"ok","data":{"status":"up","time":"2026-10-22T14:18:02.245Z"}}
+2026-10-22 22:18:02 [INFO] ===== 结束：test_cases/test_auth.py::TestAuth::test_health =====
+2026-10-22 22:18:02 [INFO] ===== 开始：test_cases/test_auth.py::TestAuth::test_register_success =====
+2026-10-22 22:18:02 [INFO] → POST http://localhost:3000/api/auth/register
+2026-10-22 22:18:02 [DEBUG]   json: {'username': 'u1792678682368', 'password': '123456', 'fullName': '测试用户', 'phone': '13978682368', 'city': '杭州'}
+2026-10-22 22:18:04 [INFO] ← HTTP 201 (1.674s)
+2026-10-22 22:18:04 [DEBUG]   body: {"code":0,"message":"注册成功","data":{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE0MCwidXNlcm5hbWUiOiJ1MTc5MjY3ODY4MjM2OCIsImlhdCI6MTc5MjY3ODY4NCwiZXhwIjoxNzkzMjgzNDg0fQ.5vquDQSZ-4jyHXKkh-uEzLDLfpkdV1Ed0_RmJamlae4","user":{"id":140,"username":"u1792678682368","fullName":"测试用户","phone":"13978682368","city":"杭州","createdAt":"2026-10-22T14:18:03.946Z","updatedAt":"2026-10-22T14:18:03.946Z"}}}
+2026-10-22 22:18:04 [INFO] ===== 结束：test_cases/test_auth.py::TestAuth::test_register_success =====
+2026-10-22 22:18:04 [INFO] ===== 开始：test_cases/test_auth.py::TestAuth::test_register_duplicate =====
+2026-10-22 22:18:04 [INFO] → POST http://localhost:3000/api/auth/register
+2026-10-22 22:18:04 [DEBUG]   json: {'username': 'u1792678684057', 'password': '123456', 'fullName': '测试用户', 'phone': '13978684057', 'city': '杭州'}
+2026-10-22 22:18:04 [INFO] ← HTTP 201 (0.111s)
+2026-10-22 22:18:04 [DEBUG]   body: {"code":0,"message":"注册成功","data":{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE0MSwidXNlcm5hbWUiOiJ1MTc5MjY3ODY4NDA1NyIsImlhdCI6MTc5MjY3ODY4NCwiZXhwIjoxNzkzMjgzNDg0fQ.CtdiRrqgb0meZzu3m6P5znekR50v_0yDYo7k3Ua1-5A","user":{"id":141,"username":"u1792678684057","fullName":"测试用户","phone":"13978684057","city":"杭州","createdAt":"2026-10-22T14:18:04.156Z","updatedAt":"2026-10-22T14:18:04.156Z"}}}
+2026-10-22 22:18:04 [INFO] → POST http://localhost:3000/api/auth/register
+2026-10-22 22:18:04 [DEBUG]   json: {'username': 'u1792678684057', 'password': '123456', 'fullName': '测试用户', 'phone': '13978684057', 'city': '杭州'}
+2026-10-22 22:18:04 [INFO] ← HTTP 409 (0.007s)
+2026-10-22 22:18:04 [DEBUG]   body: {"code":409,"message":"该账号已存在","data":null}
+2026-10-22 22:18:04 [INFO] ===== 结束：test_cases/test_auth.py::TestAuth::test_register_duplicate =====
+2026-10-22 22:18:04 [INFO] ===== 开始：test_cases/test_auth.py::TestAuth::test_register_missing_field =====
+2026-10-22 22:18:04 [INFO] → POST http://localhost:3000/api/auth/register
+2026-10-22 22:18:04 [DEBUG]   json: {'username': 'u1792678684188', 'password': '123456', 'fullName': '测试用户', 'city': '杭州'}
+2026-10-22 22:18:04 [INFO] ← HTTP 400 (0.004s)
+2026-10-22 22:18:04 [DEBUG]   body: {"code":400,"message":"手机号不能为空","data":null}
+2026-10-22 22:18:04 [INFO] ===== 结束：test_cases/test_auth.py::TestAuth::test_register_missing_field =====
+2026-10-22 22:18:04 [INFO] ===== 开始：test_cases/test_auth.py::TestAuth::test_login_success =====
+2026-10-22 22:18:04 [INFO] → POST http://localhost:3000/api/auth/register
+2026-10-22 22:18:04 [DEBUG]   json: {'username': 'u1792678684205', 'password': '123456', 'fullName': '测试用户', 'phone': '13978684205', 'city': '杭州'}
+2026-10-22 22:18:04 [INFO] ← HTTP 201 (0.111s)
+2026-10-22 22:18:04 [DEBUG]   body: {"code":0,"message":"注册成功","data":{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE0MiwidXNlcm5hbWUiOiJ1MTc5MjY3ODY4NDIwNSIsImlhdCI6MTc5MjY3ODY4NCwiZXhwIjoxNzkzMjgzNDg0fQ.e0HmmLuDc-eC4SONwD3n6wQUIDUTbCINbMFddd8kxu0","user":{"id":142,"username":"u1792678684205","fullName":"测试用户","phone":"13978684205","city":"杭州","createdAt":"2026-10-22T14:18:04.305Z","updatedAt":"2026-10-22T14:18:04.305Z"}}}
+2026-10-22 22:18:04 [INFO] → POST http://localhost:3000/api/auth/login
+2026-10-22 22:18:04 [DEBUG]   json: {'username': 'u1792678684205', 'password': '123456'}
+2026-10-22 22:18:04 [INFO] ← HTTP 200 (0.101s)
+2026-10-22 22:18:04 [DEBUG]   body: {"code":0,"message":"登录成功","data":{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE0MiwidXNlcm5hbWUiOiJ1MTc5MjY3ODY4NDIwNSIsImlhdCI6MTc5MjY3ODY4NCwiZXhwIjoxNzkzMjgzNDg0fQ.e0HmmLuDc-eC4SONwD3n6wQUIDUTbCINbMFddd8kxu0","user":{"id":142,"username":"u1792678684205","fullName":"测试用户","phone":"13978684205","city":"杭州","createdAt":"2026-10-22T14:18:04.000Z","updatedAt":"2026-10-22T14:18:04.000Z"}}}
+2026-10-22 22:18:04 [INFO] ===== 结束：test_cases/test_auth.py::TestAuth::test_login_success =====
+2026-10-22 22:18:04 [INFO] ===== 开始：test_cases/test_auth.py::TestAuth::test_login_wrong_password =====
+2026-10-22 22:18:04 [INFO] → POST http://localhost:3000/api/auth/register
+2026-10-22 22:18:04 [DEBUG]   json: {'username': 'u1792678684430', 'password': '123456', 'fullName': '测试用户', 'phone': '13978684430', 'city': '杭州'}
+2026-10-22 22:18:04 [INFO] ← HTTP 201 (0.111s)
+2026-10-22 22:18:04 [DEBUG]   body: {"code":0,"message":"注册成功","data":{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE0MywidXNlcm5hbWUiOiJ1MTc5MjY3ODY4NDQzMCIsImlhdCI6MTc5MjY3ODY4NCwiZXhwIjoxNzkzMjgzNDg0fQ.1QwMJPayICbv1K-AgMzrcNa2neeS7DQIwHPVFe5B_oc","user":{"id":143,"username":"u1792678684430","fullName":"测试用户","phone":"13978684430","city":"杭州","createdAt":"2026-10-22T14:18:04.534Z","updatedAt":"2026-10-22T14:18:04.534Z"}}}
+2026-10-22 22:18:04 [INFO] → POST http://localhost:3000/api/auth/login
+2026-10-22 22:18:04 [DEBUG]   json: {'username': 'u1792678684430', 'password': 'wrongpass'}
+2026-10-22 22:18:04 [INFO] ← HTTP 401 (0.112s)
+2026-10-22 22:18:04 [DEBUG]   body: {"code":401,"message":"账号或密码错误","data":null}
+2026-10-22 22:18:04 [INFO] ===== 结束：test_cases/test_auth.py::TestAuth::test_login_wrong_password =====
+2026-10-22 22:18:04 [INFO] ===== 开始：test_cases/test_auth.py::TestAuth::test_login_missing =====
+2026-10-22 22:18:04 [INFO] → POST http://localhost:3000/api/auth/login
+2026-10-22 22:18:04 [DEBUG]   json: {'username': '', 'password': ''}
+2026-10-22 22:18:04 [INFO] ← HTTP 400 (0.007s)
+2026-10-22 22:18:04 [DEBUG]   body: {"code":400,"message":"请输入账号和密码","data":null}
+2026-10-22 22:18:04 [INFO] ===== 结束：test_cases/test_auth.py::TestAuth::test_login_missing =====
+2026-10-22 22:18:04 [INFO] → POST http://localhost:3000/api/auth/register
+2026-10-22 22:18:04 [DEBUG]   json: {'username': 'u1792678684695', 'password': '123456', 'fullName': '操作员', 'phone': '13978684695', 'city': '上海'}
+2026-10-22 22:18:04 [INFO] ← HTTP 201 (0.149s)
+2026-10-22 22:18:04 [DEBUG]   body: {"code":0,"message":"注册成功","data":{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE0NCwidXNlcm5hbWUiOiJ1MTc5MjY3ODY4NDY5NSIsImlhdCI6MTc5MjY3ODY4NCwiZXhwIjoxNzkzMjgzNDg0fQ.VDbxEWeIaVIhl3IuTqEjvd1De4WP5ggBy-UroaCgogw","user":{"id":144,"username":"u1792678684695","fullName":"操作员","phone":"13978684695","city":"上海","createdAt":"2026-10-22T14:18:04.830Z","updatedAt":"2026-10-22T14:18:04.830Z"}}}
+2026-10-22 22:18:04 [INFO] ===== 开始：test_cases/test_auth.py::TestAuth::test_profile_success =====
+2026-10-22 22:18:04 [INFO] → GET http://localhost:3000/api/auth/profile
+2026-10-22 22:18:04 [INFO] ← HTTP 200 (0.008s)
+2026-10-22 22:18:04 [DEBUG]   body: {"code":0,"message":"success","data":{"id":144,"username":"u1792678684695","fullName":"操作员","phone":"13978684695","city":"上海","createdAt":"2026-10-22T14:18:04.000Z","updatedAt":"2026-10-22T14:18:04.000Z"}}
+2026-10-22 22:18:04 [INFO] ===== 结束：test_cases/test_auth.py::TestAuth::test_profile_success =====
+2026-10-22 22:18:04 [INFO] ===== 开始：test_cases/test_auth.py::TestAuth::test_profile_no_token =====
+2026-10-22 22:18:04 [INFO] → GET http://localhost:3000/api/auth/profile
+2026-10-22 22:18:04 [INFO] ← HTTP 401 (0.005s)
+2026-10-22 22:18:04 [DEBUG]   body: {"code":401,"message":"未登录或登录已过期","data":null}
+2026-10-22 22:18:04 [INFO] ===== 结束：test_cases/test_auth.py::TestAuth::test_profile_no_token =====
+2026-10-22 22:18:04 [INFO] ===== 开始：test_cases/test_user.py::TestUser::test_create_user =====
+2026-10-22 22:18:04 [INFO] → POST http://localhost:3000/api/users
+2026-10-22 22:18:04 [DEBUG]   json: {'fullName': '李四', 'phone': '13978684904', 'city': '北京'}
+2026-10-22 22:18:05 [INFO] ← HTTP 201 (0.125s)
+2026-10-22 22:18:05 [DEBUG]   body: {"code":0,"message":"新增用户成功","data":{"id":145,"username":"13978684904","fullName":"李四","phone":"13978684904","city":"北京","createdAt":"2026-10-22T14:18:05.022Z","updatedAt":"2026-10-22T14:18:05.022Z"}}
+2026-10-22 22:18:05 [INFO] ===== 结束：test_cases/test_user.py::TestUser::test_create_user =====
+2026-10-22 22:18:05 [INFO] ===== 开始：test_cases/test_user.py::TestUser::test_create_invalid_phone =====
+2026-10-22 22:18:05 [INFO] → POST http://localhost:3000/api/users
+2026-10-22 22:18:05 [DEBUG]   json: {'fullName': '王五', 'phone': '12345', 'city': '成都'}
+2026-10-22 22:18:05 [INFO] ← HTTP 400 (0.004s)
+2026-10-22 22:18:05 [DEBUG]   body: {"code":400,"message":"手机号格式不正确","data":null}
+2026-10-22 22:18:05 [INFO] ===== 结束：test_cases/test_user.py::TestUser::test_create_invalid_phone =====
+2026-10-22 22:18:05 [INFO] ===== 开始：test_cases/test_user.py::TestUser::test_create_duplicate_phone =====
+2026-10-22 22:18:05 [INFO] → POST http://localhost:3000/api/users
+2026-10-22 22:18:05 [DEBUG]   json: {'fullName': '待操作用户', 'phone': '13978685070', 'city': '广州'}
+2026-10-22 22:18:05 [INFO] ← HTTP 201 (0.132s)
+2026-10-22 22:18:05 [DEBUG]   body: {"code":0,"message":"新增用户成功","data":{"id":146,"username":"13978685070","fullName":"待操作用户","phone":"13978685070","city":"广州","createdAt":"2026-10-22T14:18:05.194Z","updatedAt":"2026-10-22T14:18:05.194Z"}}
+2026-10-22 22:18:05 [INFO] → GET http://localhost:3000/api/users/146
+2026-10-22 22:18:05 [INFO] ← HTTP 200 (0.005s)
+2026-10-22 22:18:05 [DEBUG]   body: {"code":0,"message":"success","data":{"id":146,"username":"13978685070","fullName":"待操作用户","phone":"13978685070","city":"广州","createdAt":"2026-10-22T14:18:05.000Z","updatedAt":"2026-10-22T14:18:05.000Z"}}
+2026-10-22 22:18:05 [INFO] → POST http://localhost:3000/api/users
+2026-10-22 22:18:05 [DEBUG]   json: {'fullName': '重复号', 'phone': '13978685070', 'city': 'X'}
+2026-10-22 22:18:05 [INFO] ← HTTP 409 (0.008s)
+2026-10-22 22:18:05 [DEBUG]   body: {"code":409,"message":"该手机号已被使用","data":null}
+2026-10-22 22:18:05 [INFO] → DELETE http://localhost:3000/api/users/146
+2026-10-22 22:18:05 [INFO] ← HTTP 200 (0.018s)
+2026-10-22 22:18:05 [DEBUG]   body: {"code":0,"message":"删除成功","data":null}
+2026-10-22 22:18:05 [INFO] ===== 结束：test_cases/test_user.py::TestUser::test_create_duplicate_phone =====
+2026-10-22 22:18:05 [INFO] ===== 开始：test_cases/test_user.py::TestUser::test_list_users =====
+2026-10-22 22:18:05 [INFO] → GET http://localhost:3000/api/users
+2026-10-22 22:18:05 [DEBUG]   params: {'page': 1, 'pageSize': 10}
+2026-10-22 22:18:05 [INFO] ← HTTP 200 (0.018s)
+2026-10-22 22:18:05 [DEBUG]   body: {"code":0,"message":"success","data":{"list":[{"id":145,"username":"13978684904","fullName":"李四","phone":"13978684904","city":"北京","createdAt":"2026-10-22T14:18:05.000Z","updatedAt":"2026-10-22T14:18:05.000Z"},{"id":144,"username":"u1792678684695","fullName":"操作员","phone":"13978684695","city":"上海","createdAt":"2026-10-22T14:18:04.000Z","updatedAt":"2026-10-22T14:18:04.000Z"},{"id":143,"username":"u1792678684430","fullName":"测试用户","phone":"13978684430","city":"杭州","createdAt":"2026-10-22T14:18:04
+2026-10-22 22:18:05 [INFO] ===== 结束：test_cases/test_user.py::TestUser::test_list_users =====
+2026-10-22 22:18:05 [INFO] ===== 开始：test_cases/test_user.py::TestUser::test_list_with_keyword =====
+2026-10-22 22:18:05 [INFO] → POST http://localhost:3000/api/users
+2026-10-22 22:18:05 [DEBUG]   json: {'fullName': '待操作用户', 'phone': '13978685292', 'city': '广州'}
+2026-10-22 22:18:05 [INFO] ← HTTP 201 (0.127s)
+2026-10-22 22:18:05 [DEBUG]   body: {"code":0,"message":"新增用户成功","data":{"id":147,"username":"13978685292","fullName":"待操作用户","phone":"13978685292","city":"广州","createdAt":"2026-10-22T14:18:05.411Z","updatedAt":"2026-10-22T14:18:05.411Z"}}
+2026-10-22 22:18:05 [INFO] → GET http://localhost:3000/api/users/147
+2026-10-22 22:18:05 [INFO] ← HTTP 200 (0.004s)
+2026-10-22 22:18:05 [DEBUG]   body: {"code":0,"message":"success","data":{"id":147,"username":"13978685292","fullName":"待操作用户","phone":"13978685292","city":"广州","createdAt":"2026-10-22T14:18:05.000Z","updatedAt":"2026-10-22T14:18:05.000Z"}}
+2026-10-22 22:18:05 [INFO] → GET http://localhost:3000/api/users
+2026-10-22 22:18:05 [DEBUG]   params: {'page': 1, 'pageSize': 10, 'keyword': '待操作用户'}
+2026-10-22 22:18:05 [INFO] ← HTTP 200 (0.015s)
+2026-10-22 22:18:05 [DEBUG]   body: {"code":0,"message":"success","data":{"list":[{"id":147,"username":"13978685292","fullName":"待操作用户","phone":"13978685292","city":"广州","createdAt":"2026-10-22T14:18:05.000Z","updatedAt":"2026-10-22T14:18:05.000Z"}],"total":1,"page":1,"pageSize":10}}
+2026-10-22 22:18:05 [INFO] → DELETE http://localhost:3000/api/users/147
+2026-10-22 22:18:05 [INFO] ← HTTP 200 (0.014s)
+2026-10-22 22:18:05 [DEBUG]   body: {"code":0,"message":"删除成功","data":null}
+2026-10-22 22:18:05 [INFO] ===== 结束：test_cases/test_user.py::TestUser::test_list_with_keyword =====
+2026-10-22 22:18:05 [INFO] ===== 开始：test_cases/test_user.py::TestUser::test_user_detail =====
+2026-10-22 22:18:05 [INFO] → POST http://localhost:3000/api/users
+2026-10-22 22:18:05 [DEBUG]   json: {'fullName': '待操作用户', 'phone': '13978685471', 'city': '广州'}
+2026-10-22 22:18:05 [INFO] ← HTTP 201 (0.122s)
+2026-10-22 22:18:05 [DEBUG]   body: {"code":0,"message":"新增用户成功","data":{"id":148,"username":"13978685471","fullName":"待操作用户","phone":"13978685471","city":"广州","createdAt":"2026-10-22T14:18:05.586Z","updatedAt":"2026-10-22T14:18:05.586Z"}}
+2026-10-22 22:18:05 [INFO] → GET http://localhost:3000/api/users/148
+2026-10-22 22:18:05 [INFO] ← HTTP 200 (0.006s)
+2026-10-22 22:18:05 [DEBUG]   body: {"code":0,"message":"success","data":{"id":148,"username":"13978685471","fullName":"待操作用户","phone":"13978685471","city":"广州","createdAt":"2026-10-22T14:18:05.000Z","updatedAt":"2026-10-22T14:18:05.000Z"}}
+2026-10-22 22:18:05 [INFO] → DELETE http://localhost:3000/api/users/148
+2026-10-22 22:18:05 [INFO] ← HTTP 200 (0.015s)
+2026-10-22 22:18:05 [DEBUG]   body: {"code":0,"message":"删除成功","data":null}
+2026-10-22 22:18:05 [INFO] ===== 结束：test_cases/test_user.py::TestUser::test_user_detail =====
+2026-10-22 22:18:05 [INFO] ===== 开始：test_cases/test_user.py::TestUser::test_user_detail_not_found =====
+2026-10-22 22:18:05 [INFO] → GET http://localhost:3000/api/users/999999
+2026-10-22 22:18:05 [INFO] ← HTTP 404 (0.003s)
+2026-10-22 22:18:05 [DEBUG]   body: {"code":404,"message":"用户不存在","data":null}
+2026-10-22 22:18:05 [INFO] ===== 结束：test_cases/test_user.py::TestUser::test_user_detail_not_found =====
+2026-10-22 22:18:05 [INFO] ===== 开始：test_cases/test_user.py::TestUser::test_user_detail_invalid_id =====
+2026-10-22 22:18:05 [INFO] → GET http://localhost:3000/api/users/abc
+2026-10-22 22:18:05 [INFO] ← HTTP 400 (0.003s)
+2026-10-22 22:18:05 [DEBUG]   body: {"code":400,"message":"用户 ID 不合法","data":null}
+2026-10-22 22:18:05 [INFO] ===== 结束：test_cases/test_user.py::TestUser::test_user_detail_invalid_id =====
+2026-10-22 22:18:05 [INFO] ===== 开始：test_cases/test_user.py::TestUser::test_update_user =====
+2026-10-22 22:18:05 [INFO] → POST http://localhost:3000/api/users
+2026-10-22 22:18:05 [DEBUG]   json: {'fullName': '待操作用户', 'phone': '13978685663', 'city': '广州'}
+2026-10-22 22:18:05 [INFO] ← HTTP 201 (0.112s)
+2026-10-22 22:18:05 [DEBUG]   body: {"code":0,"message":"新增用户成功","data":{"id":149,"username":"13978685663","fullName":"待操作用户","phone":"13978685663","city":"广州","createdAt":"2026-10-22T14:18:05.768Z","updatedAt":"2026-10-22T14:18:05.768Z"}}
+2026-10-22 22:18:05 [INFO] → PUT http://localhost:3000/api/users/149
+2026-10-22 22:18:05 [DEBUG]   json: {'city': '深圳'}
+2026-10-22 22:18:05 [INFO] ← HTTP 200 (0.030s)
+2026-10-22 22:18:05 [DEBUG]   body: {"code":0,"message":"修改成功","data":{"id":149,"username":"13978685663","fullName":"待操作用户","phone":"13978685663","city":"深圳","createdAt":"2026-10-22T14:18:05.000Z","updatedAt":"2026-10-22T14:18:05.788Z"}}
+2026-10-22 22:18:05 [INFO] → DELETE http://localhost:3000/api/users/149
+2026-10-22 22:18:05 [INFO] ← HTTP 200 (0.019s)
+2026-10-22 22:18:05 [DEBUG]   body: {"code":0,"message":"删除成功","data":null}
+2026-10-22 22:18:05 [INFO] ===== 结束：test_cases/test_user.py::TestUser::test_update_user =====
+2026-10-22 22:18:05 [INFO] ===== 开始：test_cases/test_user.py::TestUser::test_update_not_found =====
+2026-10-22 22:18:05 [INFO] → PUT http://localhost:3000/api/users/999999
+2026-10-22 22:18:05 [DEBUG]   json: {'city': 'X'}
+2026-10-22 22:18:05 [INFO] ← HTTP 404 (0.004s)
+2026-10-22 22:18:05 [DEBUG]   body: {"code":404,"message":"用户不存在","data":null}
+2026-10-22 22:18:05 [INFO] ===== 结束：test_cases/test_user.py::TestUser::test_update_not_found =====
+2026-10-22 22:18:05 [INFO] ===== 开始：test_cases/test_user.py::TestUser::test_delete_user =====
+2026-10-22 22:18:05 [INFO] → POST http://localhost:3000/api/users
+2026-10-22 22:18:05 [DEBUG]   json: {'fullName': '待操作用户', 'phone': '13978685877', 'city': '广州'}
+2026-10-22 22:18:05 [INFO] ← HTTP 201 (0.113s)
+2026-10-22 22:18:05 [DEBUG]   body: {"code":0,"message":"新增用户成功","data":{"id":150,"username":"13978685877","fullName":"待操作用户","phone":"13978685877","city":"广州","createdAt":"2026-10-22T14:18:05.985Z","updatedAt":"2026-10-22T14:18:05.985Z"}}
+2026-10-22 22:18:05 [INFO] → DELETE http://localhost:3000/api/users/150
+2026-10-22 22:18:06 [INFO] ← HTTP 200 (0.011s)
+2026-10-22 22:18:06 [DEBUG]   body: {"code":0,"message":"删除成功","data":null}
+2026-10-22 22:18:06 [INFO] → GET http://localhost:3000/api/users/150
+2026-10-22 22:18:06 [INFO] ← HTTP 404 (0.003s)
+2026-10-22 22:18:06 [DEBUG]   body: {"code":404,"message":"用户不存在","data":null}
+2026-10-22 22:18:06 [INFO] → DELETE http://localhost:3000/api/users/150
+2026-10-22 22:18:06 [INFO] ← HTTP 404 (0.004s)
+2026-10-22 22:18:06 [DEBUG]   body: {"code":404,"message":"用户不存在","data":null}
+2026-10-22 22:18:06 [INFO] ===== 结束：test_cases/test_user.py::TestUser::test_delete_user =====
+2026-10-22 22:18:06 [INFO] → GET http://localhost:3000/api/auth/profile
+2026-10-22 22:18:06 [INFO] ← HTTP 200 (0.006s)
+2026-10-22 22:18:06 [DEBUG]   body: {"code":0,"message":"success","data":{"id":144,"username":"u1792678684695","fullName":"操作员","phone":"13978684695","city":"上海","createdAt":"2026-10-22T14:18:04.000Z","updatedAt":"2026-10-22T14:18:04.000Z"}}
+2026-10-22 22:18:06 [INFO] ===== 开始：test_cases/test_user.py::TestUser::test_delete_self =====
+2026-10-22 22:18:06 [INFO] → DELETE http://localhost:3000/api/users/144
+2026-10-22 22:18:06 [INFO] ← HTTP 400 (0.009s)
+2026-10-22 22:18:06 [DEBUG]   body: {"code":400,"message":"不能删除当前登录的账号","data":null}
+2026-10-22 22:18:06 [INFO] ===== 结束：test_cases/test_user.py::TestUser::test_delete_self =====
+2026-10-22 22:18:06 [INFO] ===== 开始：test_cases/test_user.py::TestUser::test_delete_not_found =====
+2026-10-22 22:18:06 [INFO] → DELETE http://localhost:3000/api/users/999999
+2026-10-22 22:18:06 [INFO] ← HTTP 404 (0.004s)
+2026-10-22 22:18:06 [DEBUG]   body: {"code":404,"message":"用户不存在","data":null}
+2026-10-22 22:18:06 [INFO] ===== 结束：test_cases/test_user.py::TestUser::test_delete_not_found =====

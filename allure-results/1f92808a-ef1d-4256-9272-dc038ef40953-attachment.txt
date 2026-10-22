@@ -1,4 +1,0 @@
-2026-10-22 16:11:03 [INFO] ===== 开始：test_cases/test_auth.py::TestAuth::test_login_missing =====
-2026-10-22 16:11:03 [INFO] → POST http://localhost:3000/api/auth/login
-2026-10-22 16:11:08 [ERROR]   请求异常：HTTPConnectionPool(host='localhost', port=3000): Max retries exceeded with url: /api/auth/login (Caused by NewConnectionError("HTTPConnection(host='localhost', port=3000): Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。"))
-2026-10-22 16:11:08 [INFO] ===== 结束：test_cases/test_auth.py::TestAuth::test_login_missing =====
