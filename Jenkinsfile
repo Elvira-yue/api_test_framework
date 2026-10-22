@@ -100,8 +100,8 @@ pipeline {
                 )
                 call "%VENV_DIR%\\Scripts\\activate.bat"
                 python --version
-                pip install --upgrade pip -q -i https://pypi.tuna.tsinghua.edu.cn/simple || exit /b 1
-                pip install -r requirements.txt -q -i https://pypi.tuna.tsinghua.edu.cn/simple || exit /b 1
+                python -m pip install --upgrade pip -q -i https://pypi.tuna.tsinghua.edu.cn/simple || exit /b 1
+                python -m pip install -r requirements.txt -q -i https://pypi.tuna.tsinghua.edu.cn/simple || exit /b 1
                 pytest --version
                 '''
             }
