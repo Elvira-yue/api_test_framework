@@ -1,5 +1,0 @@
-INFO     api_test:conftest.py:86 ===== 开始：test_cases/test_auth.py::TestAuth::test_profile_no_token =====
-INFO     api_test:request_handler.py:38 → GET http://localhost:3000/api/auth/profile
-INFO     api_test:request_handler.py:49 ← HTTP 401 (0.001s)
-DEBUG    api_test:request_handler.py:50   body: {"code":401,"message":"未登录或登录已过期","data":null}
-INFO     api_test:conftest.py:88 ===== 结束：test_cases/test_auth.py::TestAuth::test_profile_no_token =====

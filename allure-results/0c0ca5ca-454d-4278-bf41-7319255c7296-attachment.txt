@@ -1,5 +1,0 @@
-INFO     api_test:conftest.py:86 ===== 开始：test_cases/test_auth.py::TestAuth::test_health =====
-INFO     api_test:request_handler.py:38 → GET http://localhost:3000/api/health
-INFO     api_test:request_handler.py:49 ← HTTP 200 (0.006s)
-DEBUG    api_test:request_handler.py:50   body: {"code":0,"message":"ok","data":{"status":"up","time":"2026-10-22T14:22:30.493Z"}}
-INFO     api_test:conftest.py:88 ===== 结束：test_cases/test_auth.py::TestAuth::test_health =====

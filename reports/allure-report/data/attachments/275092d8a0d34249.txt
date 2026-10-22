@@ -1,8 +1,0 @@
-2026-10-22 22:22:31 [INFO] ===== 开始：test_cases/test_user.py::TestUser::test_update_user =====
-2026-10-22 22:22:31 [INFO] → POST http://localhost:3000/api/users
-2026-10-22 22:22:31 [INFO] ← HTTP 201 (0.091s)
-2026-10-22 22:22:31 [INFO] → PUT http://localhost:3000/api/users/160
-2026-10-22 22:22:31 [INFO] ← HTTP 200 (0.015s)
-2026-10-22 22:22:31 [INFO] → DELETE http://localhost:3000/api/users/160
-2026-10-22 22:22:31 [INFO] ← HTTP 200 (0.013s)
-2026-10-22 22:22:31 [INFO] ===== 结束：test_cases/test_user.py::TestUser::test_update_user =====

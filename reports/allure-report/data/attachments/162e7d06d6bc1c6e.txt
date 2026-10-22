@@ -1,4 +1,0 @@
-2026-10-22 22:22:30 [INFO] ===== 开始：test_cases/test_auth.py::TestAuth::test_register_success =====
-2026-10-22 22:22:30 [INFO] → POST http://localhost:3000/api/auth/register
-2026-10-22 22:22:30 [INFO] ← HTTP 201 (0.098s)
-2026-10-22 22:22:30 [INFO] ===== 结束：test_cases/test_auth.py::TestAuth::test_register_success =====

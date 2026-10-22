@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+
+# IDE
+.idea/
+
+# Allure 测试结果与报告
+allure-results/
+reports/
+
+# 日志
+logs/
