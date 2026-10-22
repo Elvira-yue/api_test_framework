@@ -133,7 +133,7 @@ pipeline {
 
         stage('Allure Report') {
             steps {
-                allure includeProperties: false, report: 'allure-report', reportBuildPolicy: 'ALWAYS'
+                allure includeProperties: false, report: 'allure-report', reportBuildPolicy: 'ALWAYS', results: [[path: 'allure-results']]
             }
         }
     }
