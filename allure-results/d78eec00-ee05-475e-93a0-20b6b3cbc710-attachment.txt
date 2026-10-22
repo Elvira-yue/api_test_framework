@@ -1,0 +1,12 @@
+INFO     api_test:conftest.py:86 ===== 开始：test_cases/test_user.py::TestUser::test_user_detail =====
+INFO     api_test:request_handler.py:38 → POST http://localhost:3000/api/users
+DEBUG    api_test:request_handler.py:41   json: {'fullName': '待操作用户', 'phone': '13978951610', 'city': '广州'}
+INFO     api_test:request_handler.py:49 ← HTTP 201 (0.091s)
+DEBUG    api_test:request_handler.py:50   body: {"code":0,"message":"新增用户成功","data":{"id":159,"username":"13978951610","fullName":"待操作用户","phone":"13978951610","city":"广州","createdAt":"2026-10-22T14:22:31.694Z","updatedAt":"2026-10-22T14:22:31.694Z"}}
+INFO     api_test:request_handler.py:38 → GET http://localhost:3000/api/users/159
+INFO     api_test:request_handler.py:49 ← HTTP 200 (0.003s)
+DEBUG    api_test:request_handler.py:50   body: {"code":0,"message":"success","data":{"id":159,"username":"13978951610","fullName":"待操作用户","phone":"13978951610","city":"广州","createdAt":"2026-10-22T14:22:31.000Z","updatedAt":"2026-10-22T14:22:31.000Z"}}
+INFO     api_test:request_handler.py:38 → DELETE http://localhost:3000/api/users/159
+INFO     api_test:request_handler.py:49 ← HTTP 200 (0.011s)
+DEBUG    api_test:request_handler.py:50   body: {"code":0,"message":"删除成功","data":null}
+INFO     api_test:conftest.py:88 ===== 结束：test_cases/test_user.py::TestUser::test_user_detail =====

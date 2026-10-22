@@ -1,0 +1,6 @@
+INFO     api_test:conftest.py:86 ===== 开始：test_cases/test_user.py::TestUser::test_update_not_found =====
+INFO     api_test:request_handler.py:38 → PUT http://localhost:3000/api/users/999999
+DEBUG    api_test:request_handler.py:41   json: {'city': 'X'}
+INFO     api_test:request_handler.py:49 ← HTTP 404 (0.003s)
+DEBUG    api_test:request_handler.py:50   body: {"code":404,"message":"用户不存在","data":null}
+INFO     api_test:conftest.py:88 ===== 结束：test_cases/test_user.py::TestUser::test_update_not_found =====

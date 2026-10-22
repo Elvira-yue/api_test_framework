@@ -1,6 +1,0 @@
-INFO     api_test:conftest.py:86 ===== 开始：test_cases/test_user.py::TestUser::test_list_users =====
-INFO     api_test:request_handler.py:38 → GET http://localhost:3000/api/users
-DEBUG    api_test:request_handler.py:41   params: {'page': 1, 'pageSize': 10}
-INFO     api_test:request_handler.py:49 ← HTTP 200 (0.018s)
-DEBUG    api_test:request_handler.py:50   body: {"code":0,"message":"success","data":{"list":[{"id":145,"username":"13978684904","fullName":"李四","phone":"13978684904","city":"北京","createdAt":"2026-10-22T14:18:05.000Z","updatedAt":"2026-10-22T14:18:05.000Z"},{"id":144,"username":"u1792678684695","fullName":"操作员","phone":"13978684695","city":"上海","createdAt":"2026-10-22T14:18:04.000Z","updatedAt":"2026-10-22T14:18:04.000Z"},{"id":143,"username":"u1792678684430","fullName":"测试用户","phone":"13978684430","city":"杭州","createdAt":"2026-10-22T14:18:04
-INFO     api_test:conftest.py:88 ===== 结束：test_cases/test_user.py::TestUser::test_list_users =====

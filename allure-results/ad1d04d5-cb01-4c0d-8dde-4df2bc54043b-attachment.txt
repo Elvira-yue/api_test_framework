@@ -1,4 +1,0 @@
-2026-10-22 22:18:05 [INFO] ===== 开始：test_cases/test_user.py::TestUser::test_user_detail_invalid_id =====
-2026-10-22 22:18:05 [INFO] → GET http://localhost:3000/api/users/abc
-2026-10-22 22:18:05 [INFO] ← HTTP 400 (0.003s)
-2026-10-22 22:18:05 [INFO] ===== 结束：test_cases/test_user.py::TestUser::test_user_detail_invalid_id =====

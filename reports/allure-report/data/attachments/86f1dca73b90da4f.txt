@@ -1,0 +1,6 @@
+INFO     api_test:conftest.py:86 ===== 开始：test_cases/test_auth.py::TestAuth::test_register_missing_field =====
+INFO     api_test:request_handler.py:38 → POST http://localhost:3000/api/auth/register
+DEBUG    api_test:request_handler.py:41   json: {'username': 'u1792678950719', 'password': '123456', 'fullName': '测试用户', 'city': '杭州'}
+INFO     api_test:request_handler.py:49 ← HTTP 400 (0.001s)
+DEBUG    api_test:request_handler.py:50   body: {"code":400,"message":"手机号不能为空","data":null}
+INFO     api_test:conftest.py:88 ===== 结束：test_cases/test_auth.py::TestAuth::test_register_missing_field =====

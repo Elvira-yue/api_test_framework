@@ -1,5 +1,0 @@
-INFO     api_test:conftest.py:86 ===== 开始：test_cases/test_user.py::TestUser::test_user_detail_invalid_id =====
-INFO     api_test:request_handler.py:38 → GET http://localhost:3000/api/users/abc
-INFO     api_test:request_handler.py:49 ← HTTP 400 (0.003s)
-DEBUG    api_test:request_handler.py:50   body: {"code":400,"message":"用户 ID 不合法","data":null}
-INFO     api_test:conftest.py:88 ===== 结束：test_cases/test_user.py::TestUser::test_user_detail_invalid_id =====
