@@ -133,7 +133,12 @@ pipeline {
 
         stage('Allure Report') {
             steps {
-                allure includeProperties: false, report: 'allure-report', reportBuildPolicy: 'ALWAYS', results: [[path: 'allure-results']]
+                bat '''
+                @echo off
+                if exist allure-report rmdir /s /q allure-report
+                allure generate allure-results -o allure-report --clean
+                '''
+                archiveArtifacts artifacts: 'allure-report/**', allowEmptyArchive: true
             }
         }
     }
