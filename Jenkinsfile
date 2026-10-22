@@ -1,18 +1,15 @@
 ﻿// =========================================================================
-// Jenkins Pipeline - API 自动化测试（Windows 本机版）
+// Jenkins Pipeline - API 自动化测试（Windows 本机版，Git 拉取模式）
 // =========================================================================
-// 前置准备（一次性）：
-//   1. Jenkins 装插件：Allure Jenkins Plugin、Git plugin
-//   2. Manage Jenkins -> Tools -> Allure Commandline -> Add:
-//        Name: allure
-//        Home dir: C:\Users\越越\allure          ← 本机 Allure CLI 解压根目录（含 bin/config/lib/plugins）
-//   3. Manage Jenkins -> Credentials -> Add Username with password:
-//        ID: GIT_CREDENTIALS, User: 你的 Git 账号, Pass: 你的 Git Token
-//   4. 确保后端已启动（双击 start-all.bat）
+// 前置准备（一次性，已完成）：
+//   1. Jenkins 插件：Allure Jenkins Plugin、Git plugin
+//   2. Manage Jenkins -> Tools -> Allure Commandline -> Name: allure
+//        Home dir: C:\Users\越越\allure
+//   3. 仓库为 public，匿名 HTTPS 拉取，无需 Git 凭据
 // =========================================================================
 
 pipeline {
-    agent any
+    agent { node { label 'built-in'; customWorkspace 'C:/jenkins/ws/api-auto-test' } }
 
     parameters {
         choice(name: 'ENV', choices: ['dev', 'test', 'prod'], description: '被测环境')
@@ -25,7 +22,6 @@ pipeline {
     }
 
     environment {
-        START_ALL_BAT  = "D:/projects/trae项目/start-all.bat"
         BACKEND_PORT   = "3000"
         MYSQL_PORT     = "3306"
         VENV_DIR       = ".venv"
@@ -43,8 +39,8 @@ pipeline {
             steps {
                 checkout([
                     $class: 'GitSCM',
-                    branches: [[name: 'main']],
-                    userRemoteConfigs: [[ url: params.REPO_URL, credentialsId: 'GIT_CREDENTIALS' ]]
+                    branches: [[name: '*/main']],
+                    userRemoteConfigs: [[ url: params.REPO_URL ]]
                 ])
             }
         }
@@ -53,40 +49,40 @@ pipeline {
             steps {
                 bat '''
                 @echo off
+                set "NODE_HOME=C:\\Users\\越越\\AppData\\Local\\Temp\\trae-node\\node-v22.11.0-win-x64"
+                set "PATH=%NODE_HOME%;%PATH%"
                 echo ========================================
                 echo   Check MySQL / Backend
                 echo ========================================
                 netstat -ano | findstr ":3306 " | findstr "LISTENING" >nul
-                if %errorlevel%==0 (
-                    echo [OK] MySQL running on 3306
-                ) else (
-                    if "%AUTO_START_SERVICES%"=="true" (
-                        echo [INFO] Starting services...
-                        call "%START_ALL_BAT%"
-                    ) else (
-                        echo [FAIL] MySQL not running
-                        exit /b 1
-                    )
+                if %errorlevel%==0 goto mysql_ok
+                if not "%AUTO_START_SERVICES%"=="true" (
+                    echo [FAIL] MySQL not running
+                    exit /b 1
                 )
-                timeout /t 2 /nobreak >nul
+                echo [INFO] Starting MySQL ...
+                start "" /min "C:\\Users\\Public\\mysql\\mysql-8.0.29-winx64\\bin\\mysqld.exe" --datadir=C:\\Users\\Public\\mysql\\data --port=3306
+                :wait_mysql
+                ping -n 3 127.0.0.1 >nul
+                netstat -ano | findstr ":3306 " | findstr "LISTENING" >nul
+                if errorlevel 1 goto wait_mysql
+                :mysql_ok
+                echo [OK] MySQL ready (3306)
+
                 netstat -ano | findstr ":3000 " | findstr "LISTENING" >nul
-                if %errorlevel%==0 (
-                    echo [OK] Backend running on 3000
-                ) else (
-                    if "%AUTO_START_SERVICES%"=="true" (
-                        timeout /t 8 /nobreak >nul
-                        netstat -ano | findstr ":3000 " | findstr "LISTENING" >nul
-                        if %errorlevel%==0 (
-                            echo [OK] Backend started
-                        ) else (
-                            echo [FAIL] Backend start failed
-                            exit /b 1
-                        )
-                    ) else (
-                        echo [FAIL] Backend not running
-                        exit /b 1
-                    )
+                if %errorlevel%==0 goto backend_ok
+                if not "%AUTO_START_SERVICES%"=="true" (
+                    echo [FAIL] Backend not running
+                    exit /b 1
                 )
+                echo [INFO] Starting Backend ...
+                start "JenkinsBackend" /d "D:\\projects\\trae项目\\user-management-system\\backend" cmd /c "node src/server.js"
+                :wait_backend
+                ping -n 3 127.0.0.1 >nul
+                netstat -ano | findstr ":3000 " | findstr "LISTENING" >nul
+                if errorlevel 1 goto wait_backend
+                :backend_ok
+                echo [OK] Backend ready (3000)
                 echo [DONE] All services ready
                 '''
             }
