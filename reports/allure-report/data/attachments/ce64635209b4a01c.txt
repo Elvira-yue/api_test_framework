@@ -1,0 +1,5 @@
+INFO     api_test:conftest.py:86 ===== 开始：test_cases/test_auth.py::TestAuth::test_login_success =====
+INFO     api_test:request_handler.py:38 → POST http://localhost:3000/api/auth/register
+DEBUG    api_test:request_handler.py:41   json: {'username': 'u1792656655236', 'password': '123456', 'fullName': '测试用户', 'phone': '13956655236', 'city': '杭州'}
+ERROR    api_test:request_handler.py:46   请求异常：HTTPConnectionPool(host='localhost', port=3000): Max retries exceeded with url: /api/auth/register (Caused by NewConnectionError("HTTPConnection(host='localhost', port=3000): Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。"))
+INFO     api_test:conftest.py:88 ===== 结束：test_cases/test_auth.py::TestAuth::test_login_success =====

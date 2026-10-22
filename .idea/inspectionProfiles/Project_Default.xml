@@ -1,0 +1,71 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="LanguageDetectionInspection" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="ignoredPackages">
+        <list>
+          <option value="allure-pytest" />
+          <option value="allure-python-commons" />
+          <option value="apipkg" />
+          <option value="async-generator" />
+          <option value="attrs" />
+          <option value="beautifulsoup4" />
+          <option value="bs4" />
+          <option value="certifi" />
+          <option value="cffi" />
+          <option value="chardet" />
+          <option value="charset-normalizer" />
+          <option value="colorama" />
+          <option value="ddt" />
+          <option value="enum34" />
+          <option value="exceptiongroup" />
+          <option value="execnet" />
+          <option value="h11" />
+          <option value="idna" />
+          <option value="iniconfig" />
+          <option value="Jinja2" />
+          <option value="jsonpath" />
+          <option value="MarkupSafe" />
+          <option value="namedlist" />
+          <option value="outcome" />
+          <option value="packaging" />
+          <option value="pluggy" />
+          <option value="public" />
+          <option value="py" />
+          <option value="pycparser" />
+          <option value="PyHTML" />
+          <option value="PyMySQL" />
+          <option value="pyparsing" />
+          <option value="pypng" />
+          <option value="PySocks" />
+          <option value="pytest" />
+          <option value="pytest-forked" />
+          <option value="pytest-html" />
+          <option value="pytest-metadata" />
+          <option value="pytest-xdist" />
+          <option value="pytz" />
+          <option value="PyYAML" />
+          <option value="query-string" />
+          <option value="redis" />
+          <option value="requests" />
+          <option value="requests-toolbelt" />
+          <option value="six" />
+          <option value="sniffio" />
+          <option value="sortedcontainers" />
+          <option value="soupsieve" />
+          <option value="tomli" />
+          <option value="trio" />
+          <option value="trio-websocket" />
+          <option value="typing_extensions" />
+          <option value="tzlocal" />
+          <option value="urllib3" />
+          <option value="Werkzeug" />
+          <option value="wsproto" />
+          <option value="xlrd" />
+          <option value="zmail" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

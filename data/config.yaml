@@ -1,0 +1,30 @@
+# 环境配置
+env: dev
+
+# 各环境地址
+base_url:
+  dev: http://localhost:3000
+  test: http://localhost:3000
+  prod: http://your-prod-host:3000
+
+# 请求超时（秒）
+timeout: 15
+
+# 数据库配置（可选，用于数据清理/校验）
+database:
+  enabled: false
+  host: 127.0.0.1
+  port: 3306
+  database: user_management
+  username: root
+  password: "123456"
+
+# 全局默认账号（部分用例可复用）
+default_user:
+  username: admin
+  password: "123456"
+
+# Allure 报告配置
+allure:
+  results_dir: allure-results
+  report_dir: reports/allure-report

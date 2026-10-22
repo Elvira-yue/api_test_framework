@@ -1,0 +1,30 @@
+# 测试数据集中管理，用例通过 data_utils 读取
+
+auth:
+  register:
+    valid:
+      fullName: 测试用户
+      city: 杭州
+    valid_password: "123456"
+    # 缺省手机号占位，由 utils 动态生成以避免唯一键冲突
+
+  login:
+    valid:
+      username: admin
+      password: "123456"
+    invalid_password:
+      username: admin
+      password: wrongpass
+
+user:
+  create:
+    valid:
+      fullName: 李四
+      city: 上海
+    invalid_phone:
+      fullName: 王五
+      phone: "12345"       # 非法手机号
+      city: 成都
+
+  update:
+    valid_city: 深圳
