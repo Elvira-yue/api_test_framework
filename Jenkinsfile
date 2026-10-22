@@ -1,4 +1,4 @@
-// =========================================================================
+﻿// =========================================================================
 // Jenkins Pipeline - API 自动化测试（Windows 本机版，Git 拉取模式）
 // =========================================================================
 // 前置准备（一次性，已完成）：
@@ -100,8 +100,8 @@ pipeline {
                 )
                 call "%VENV_DIR%\\Scripts\\activate.bat"
                 python --version
-                pip install --upgrade pip -q
-                pip install -r requirements.txt -q
+                pip install --upgrade pip -q -i https://pypi.tuna.tsinghua.edu.cn/simple || exit /b 1
+                pip install -r requirements.txt -q -i https://pypi.tuna.tsinghua.edu.cn/simple || exit /b 1
                 pytest --version
                 '''
             }
